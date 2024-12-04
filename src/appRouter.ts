@@ -3,14 +3,16 @@ import Task from "./modules/task";
 
 export default class AppRouter {
 
-    constructor() {
+    private baseUrl: string;
 
+    constructor(url?: string) {
+        this.baseUrl = url || ''
     }
 
     getVersion1(): Router {
         const app = Router();
 
-        app.use(Task.getRouter())
+        app.use(`${this.baseUrl}/`, Task.getRouter())
         return app
     }
 }

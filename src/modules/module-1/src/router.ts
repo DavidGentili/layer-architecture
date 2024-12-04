@@ -17,6 +17,7 @@ export default class Module1Router extends CustomRouter implements IModule1Route
     private privateMiddleware(req: Request, res: Response, next: NextFunction) {
         req.body.enabledUser = {
             GET: [],
+            POST: [],
             PUT: [],
             DELETE: [],
         }

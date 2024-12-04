@@ -1,11 +1,11 @@
-import mongoose from 'mongoose';
+import mongoose, { Mongoose } from 'mongoose';
 import { databaseURL } from './config';
 
 
 /**
  * Se realiza la conexión a la base de datos
  */
-export const connect = async () => {
+export async function connect(): Promise<Mongoose | undefined> {
     try {
         mongoose.set('strictQuery', false);
         const db = await mongoose.connect(databaseURL)

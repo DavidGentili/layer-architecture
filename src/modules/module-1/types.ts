@@ -34,24 +34,47 @@ export interface IModule1Constructor {
     objectParam: IObjectParam
 }
 
-export type IQueryModule1 = {
+export type IQueryModule1DB = {
     stringParam?: string
     numberParam?: number
     booleanParm?: boolean
 }
 
-export interface ICreateModule1 {
+export interface ICreateModule1DB {
     stringParam: string
     numberParam: number
     booleanParm: boolean
     objectParam: IObjectParam
 }
 
-export interface IUpdateModule1 {
+export interface IUpdateModule1DB {
     stringParam?: string
     numberParam?: number
     booleanParm?: boolean
     objectParam?: IObjectParam
+}
+
+export type IQueryModule1 = IQueryModule1DB & {
+}
+
+export interface ICreateModule1 extends ICreateModule1DB {
+
+}
+
+export interface IUpdateModule1 extends IUpdateModule1DB {
+
+}
+
+
+export interface IModule1Router extends IRouter {
+}
+
+export interface IModule1Controllers extends IControllers {
+    get(req: Request, res: Response): Promise<void>
+    getPage(req: Request, res: Response): Promise<void>
+    create(req: Request, res: Response): Promise<void>
+    update(req: Request, res: Response): Promise<void>
+    delete(req: Request, res: Response): Promise<void>
 }
 
 
@@ -66,25 +89,14 @@ export interface IModule1Model extends IModel {
 
 }
 
-export interface IModule1Controllers extends IControllers {
-    get(req: Request, res: Response): Promise<void>
-    getPage(req: Request, res: Response): Promise<void>
-    create(req: Request, res: Response): Promise<void>
-    update(req: Request, res: Response): Promise<void>
-    delete(req: Request, res: Response): Promise<void>
-}
-
-export interface IModule1Router extends IRouter {
-}
-
 export interface IModule1Repositories extends IRepostories {
-    get(params: IQueryModule1, config?: IConfigGet): Promise<IModule1[]>
-    getCount(params: IQueryModule1): Promise<number>
+    get(params: IQueryModule1DB, config?: IConfigGet): Promise<IModule1[]>
+    getCount(params: IQueryModule1DB): Promise<number>
     getById(elementId: string, config?: IConfigGet): Promise<IModule1 | null>
-    getPage(params: IQueryModule1, pageOptions: IPageable, config?: IConfigGet): Promise<IPage<IModule1>>
+    getPage(params: IQueryModule1DB, pageOptions: IPageable, config?: IConfigGet): Promise<IPage<IModule1>>
 
-    create(params: ICreateModule1): Promise<IModule1 | null>
-    update(elementId: string, params: IUpdateModule1): Promise<IModule1 | null>
+    create(params: ICreateModule1DB): Promise<IModule1 | null>
+    update(elementId: string, params: IUpdateModule1DB): Promise<IModule1 | null>
     delete(elementId: string): Promise<IModule1 | null>
 }
 

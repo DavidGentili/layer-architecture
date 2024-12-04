@@ -1,5 +1,5 @@
 import { Model } from "@/entities/Model"
-import { ICreateModule1, IModule1, IModule1Model, IModule1Repositories, IQueryModule1, IUpdateModule1 } from "../types";
+import { ICreateModule1, IModule1, IModule1Model, IModule1Repositories, IQueryModule1DB, IUpdateModule1 } from "../types";
 import { IConfigGet, IPageable, IPage } from "@/types";
 import ModelError from "@/exceptions/ModelError";
 
@@ -11,14 +11,17 @@ export default class Module1Model extends Model implements IModule1Model {
         super(repository);
     }
 
-    get(params: IQueryModule1, config?: IConfigGet | undefined): Promise<IModule1[]> {
+    get(params: IQueryModule1DB, config?: IConfigGet | undefined): Promise<IModule1[]> {
         throw new Error("Method not implemented.");
+        return this.repository.get(params, config)
     }
     getById(elementId: string): Promise<IModule1 | null> {
         throw new Error("Method not implemented.");
+        return this.repository.getById(elementId)
     }
-    getPage(params: IQueryModule1, pageOptions: IPageable): Promise<IPage<IModule1>> {
+    getPage(params: IQueryModule1DB, pageOptions: IPageable, config?: IConfigGet | undefined): Promise<IPage<IModule1>> {
         throw new Error("Method not implemented.");
+        return this.repository.getPage(params, pageOptions, config)
     }
 
     async create(params: ICreateModule1): Promise<IModule1> {

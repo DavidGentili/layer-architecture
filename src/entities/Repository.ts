@@ -1,5 +1,6 @@
-import { IConfigGet, IDB, IFactory, IModelDocument, IPageable, IQueryParams, IRepostories, IPage } from "@/types";
+import { IConfigGet, IFactory, IModelDocument, IPageable, IQueryParams, IRepostories, IPage } from "@/types";
 import { Model as MongooseModel } from "mongoose";
+import { IDB } from "@/repositories/types";
 import DB from "@/repositories";
 
 
