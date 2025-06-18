@@ -10,7 +10,7 @@ export interface IMainException extends Error {
 
 
 export interface IMainExceptionConstructor {
-    id: string,
+    id?: string,
     name?: string,
     message?: string,
     error?: Error,

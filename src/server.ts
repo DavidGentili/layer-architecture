@@ -6,6 +6,7 @@ import cors from 'cors';
 import { port } from './config';
 import { version, name } from '../package.json'
 import AppRouter from './appRouter';
+import { limitRateMiddleware } from './middlewares/rateLimit';
 
 
 
@@ -14,11 +15,11 @@ const app = express();
 //Middlewares
 app.use(cors()); // Se establece la politica de CORS
 app.use(bodyParser.json()); //Se parsea el cuerpo de la peticion
-
+app.use(limitRateMiddleware);
 
 //Routes
 const router = new AppRouter();
-app.use('/',router.getVersion1())
+app.use('/', router.getVersion1())
 
 
 /**

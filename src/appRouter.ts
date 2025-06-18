@@ -1,5 +1,4 @@
 import { Router } from "express";
-import Task from "./modules/task";
 
 export default class AppRouter {
 
@@ -12,7 +11,6 @@ export default class AppRouter {
     getVersion1(): Router {
         const app = Router();
 
-        app.use(`${this.baseUrl}/`, Task.getRouter())
         return app
     }
 }

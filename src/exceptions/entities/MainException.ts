@@ -14,8 +14,8 @@ export default class MainException extends Error implements IMainException {
 
     constructor(params: IMainExceptionConstructor) {
         super(params.message);
-        this.id = params.id;
-        this.name = params.name || params.id;
+        this.id = params.id || 'MAIN_EXCEPTION';
+        this.name = params.name || this.id;
         this.code = params.code;
         this.stack = params.error?.stack;
     }
