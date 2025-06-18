@@ -1,4 +1,4 @@
-import DBError from "@/exceptions/DBError";
+import DBError from "@/exceptions/entities/DBError";
 import { Model } from "mongoose";
 
 export async function createDocument<IType, ICreate>(model: Model<IType>, params: ICreate): Promise<IType> {

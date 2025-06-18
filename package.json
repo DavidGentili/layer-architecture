@@ -16,7 +16,8 @@
     "express": "^4.18.3",
     "express-async-errors": "^3.1.1",
     "mongoose": "^8.2.0",
-    "ts-node": "^10.9.2"
+    "ts-node": "^10.9.2",
+    "winston": "^3.17.0"
   },
   "devDependencies": {
     "@types/body-parser": "^1.19.5",
@@ -27,5 +28,9 @@
     "resolve-tspaths": "^0.8.18",
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": "21.5.0",
+    "npm": "10.2.4"
   }
 }

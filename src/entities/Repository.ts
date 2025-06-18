@@ -34,8 +34,8 @@ export class Repository<ITypeDB, IModelType, IType extends IModelDocument<ITypeD
         return elements.map(element => this.factory.createByDB(element?.toJSONFor())).filter(elem => elem !== null) as IModelType[]
     }
 
-    async getPage(query: IQuery, pageOptions: IPageable): Promise<IPage<IModelType>> {
-        const page = await this.DB.getPage<IType, IQuery>(this.document, query, pageOptions);
+    async getPage(query: IQuery, pageOptions: IPageable, config: IConfigGet): Promise<IPage<IModelType>> {
+        const page = await this.DB.getPage<IType, IQuery>(this.document, query, pageOptions, config);
         return {
             ...page,
             elements: page.elements.map(element => this.factory.createByDB(element?.toJSONFor())).filter(elem => elem !== null) as IModelType[]

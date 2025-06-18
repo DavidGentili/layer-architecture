@@ -1,8 +1,8 @@
-import { getDocuments, getDocumentById, getDocumentsByCollectionsOfIds, getCount, getPage } from './src/get';
 import { createDocument } from './src/create';
-import { updateDocument } from './src/update';
 import { deleteDocument } from './src/delete';
-import { IDB } from '@/types';
+import { getCount, getDocumentById, getDocuments, getDocumentsByCollectionsOfIds, getPage } from './src/get';
+import { updateDocument } from './src/update';
+import { IDB } from './types';
 
 const DB: IDB = {
     get: getDocuments,

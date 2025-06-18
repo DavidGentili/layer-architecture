@@ -2,12 +2,13 @@ import { Router } from "express";
 import { Document } from "mongoose";
 
 
+/**
+ * QUERY INTERFACES
+ */
+
+
 export interface IQueryParams {
     [key: string]: number | Object | string | boolean | undefined;
-}
-
-export interface IModelDocument<T> extends Document {
-    toJSONFor: () => T;
 }
 
 export interface IConfigGet {
@@ -25,6 +26,17 @@ export type IQueryFormat = {
     type: string,
 }
 
+
+export interface IQueryDate {
+    $lte?: string;
+    $gte?: string;
+}
+
+
+export interface IQueryListValue {
+    "$in": string[]
+}
+
 export interface IPageable {
     pageSize?: number,
     page?: number
@@ -39,12 +51,15 @@ export interface IPage<T> {
     nextPage: number
 }
 
+
+/**
+ * MODULE INTERFACES
+ */
+
 export interface IModel {
-    // repository: IRepostories
 }
 
 export interface IRouter {
-    // controller: IControllers
     getRouter: () => Router
 }
 
@@ -53,7 +68,6 @@ export interface IRepostories {
 }
 
 export interface IControllers {
-    // model: IModel
 }
 
 export interface IModule {
@@ -62,4 +76,8 @@ export interface IModule {
 
 export interface IFactory<InputType, OutputType> {
     createByDB(document: InputType | undefined): OutputType | null
+}
+
+export interface IModelDocument<T> extends Document {
+    toJSONFor: () => T;
 }

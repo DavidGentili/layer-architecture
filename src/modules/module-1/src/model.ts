@@ -1,7 +1,7 @@
 import { Model } from "@/entities/Model"
 import { ICreateModule1, IModule1, IModule1Model, IModule1Repositories, IQueryModule1DB, IUpdateModule1 } from "../types";
 import { IConfigGet, IPageable, IPage } from "@/types";
-import ModelError from "@/exceptions/ModelError";
+import ModelError from "@/exceptions/entities/ModelError";
 
 export default class Module1Model extends Model implements IModule1Model {
 

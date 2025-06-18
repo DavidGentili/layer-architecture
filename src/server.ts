@@ -1,5 +1,5 @@
 import 'express-async-errors'
-import handlerErrorResponse from './exceptions/handlerErrorResponse';
+import handlerErrorResponse from './exceptions';
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';

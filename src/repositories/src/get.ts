@@ -1,4 +1,4 @@
-import DBError from "@/exceptions/DBError";
+import DBError from "@/exceptions/entities/DBError";
 import clearParams from "@/helpers/cleanParams";
 import { IConfigGet, IPage, IPageable, IQueryParams } from "@/types";
 import { HydratedDocument, Model, Types } from "mongoose";

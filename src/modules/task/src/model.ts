@@ -1,7 +1,7 @@
 import { Model } from "@/entities/Model"
 import { ICreateTask, ITask, ITaskModel, ITaskRepositories, IQueryTask, IUpdateTask } from "../types";
 import { IConfigGet, IPageable, IPage } from "@/types";
-import ModelError from "@/exceptions/ModelError";
+import ModelError from "@/exceptions/entities/ModelError";
 
 export default class TaskModel extends Model implements ITaskModel {
 

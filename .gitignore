@@ -30,3 +30,4 @@ nodemon.json
 _board.txt
 Dockerfile
 ./dist
+.nvmrc

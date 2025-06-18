@@ -1,5 +1,7 @@
 import mongoose, { Mongoose } from 'mongoose';
 import { databaseURL } from './config';
+import DBError from './exceptions/entities/DBError';
+import Log from './log';
 
 
 /**
@@ -12,9 +14,9 @@ export async function connect(): Promise<Mongoose | undefined> {
         const name = `${db.connection.host} - ${db.connection.name}`
         console.log(`Se ha conectado a la base de datos : ${name}`)
         return db;
-    } catch (e) {
-        console.log(e)
-        console.log('No se ha podido conectar con la base de datos, por favor comuniquese con el adminsitrador del sistema')
+    } catch (e: any) {
+        Log.getInstance().addError(e);
+        Log.getInstance().addError(new DBError('No se ha podido conectar con la base de datos, por favor comuniquese con el adminsitrador del sistema'));
         return undefined
     }
 }
