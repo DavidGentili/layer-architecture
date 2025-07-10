@@ -56,19 +56,24 @@ export interface IPage<T> {
  * MODULE INTERFACES
  */
 
+export interface IRouter {
+    getRouter: () => Router
+}
+
+export interface IControllers {
+}
+
 export interface IModel {
 }
 
-export interface IRouter {
-    getRouter: () => Router
+export interface IService {
+    
 }
 
 export interface IRepostories {
 
 }
 
-export interface IControllers {
-}
 
 export interface IModule {
     getRouter: () => Router
